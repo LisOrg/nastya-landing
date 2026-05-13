@@ -1,7 +1,9 @@
 document.documentElement.classList.add("js");
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const revealTargets = document.querySelectorAll(".hero, .section, .card, .site-footer");
+/* Герой не анимируем: иначе весь блок с текстом стартует с opacity:0 и может
+   не получить is-visible у IntersectionObserver — текст «пропадает». */
+const revealTargets = document.querySelectorAll(".section, .card, .site-footer");
 
 if (reduceMotion) {
   revealTargets.forEach((item) => item.classList.add("is-visible"));
