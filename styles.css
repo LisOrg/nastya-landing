@@ -226,6 +226,14 @@ ol {
   padding: 1.4rem;
 }
 
+.request-block h3 {
+  margin-bottom: 0.75rem;
+}
+
+.request-block ul:last-child {
+  margin-bottom: 0;
+}
+
 .muted {
   color: var(--text-secondary);
   margin-bottom: 0.45rem;
@@ -406,7 +414,8 @@ ol {
   color: #229ed9;
 }
 
-.footer-social-btn--vk {
+.footer-social-btn--vk,
+.footer-social-btn--reviews {
   color: #2787f5;
 }
 
@@ -414,14 +423,6 @@ ol {
   flex-shrink: 0;
   width: 22px;
   height: 22px;
-}
-
-.footer-social-img {
-  flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  display: block;
 }
 
 @media (max-width: 980px) {
