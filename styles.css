@@ -210,6 +210,31 @@ ol {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* «С какими состояниями можно обратиться»: одинаковая высота (константа) + по центру */
+.cards-grid.cards-grid--states {
+  --states-card-height: 10rem;
+  align-items: stretch;
+}
+
+.cards-grid--states .card {
+  box-sizing: border-box;
+  height: var(--states-card-height);
+  min-height: var(--states-card-height);
+  max-height: var(--states-card-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+
+.cards-grid--states .card p {
+  margin: 0;
+  text-align: center;
+}
+
 .cards-grid--directions {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
