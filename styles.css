@@ -293,6 +293,16 @@ ol {
   outline: none;
 }
 
+.process-slider.process-slider--mouse-drag {
+  cursor: grab;
+}
+
+.process-slider.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
 .process-slider:focus-visible {
   outline: 2px solid rgba(76, 59, 51, 0.45);
   outline-offset: 2px;
@@ -301,6 +311,10 @@ ol {
 .process-slide {
   flex: 0 0 min(28rem, calc(100% - 2.5rem));
   scroll-snap-align: start;
+}
+
+.process-slide h3 {
+  text-align: center;
 }
 
 .process-slider-hint {
@@ -524,7 +538,7 @@ ol {
     max-height: min(58vh, 480px);
   }
 
-  .cards-grid--two,
+  .cards-grid--two:not(.cards-grid--requests),
   .cards-grid--three,
   .cards-grid--directions {
     grid-template-columns: 1fr;

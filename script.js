@@ -81,6 +81,49 @@ function initProcessSlider() {
   prev?.addEventListener("click", () => scrollByDir(-1));
   next?.addEventListener("click", () => scrollByDir(1));
 
+  slider.classList.add("process-slider--mouse-drag");
+
+  let dragPointerId = null;
+  let dragStartX = 0;
+  let dragStartScroll = 0;
+
+  function onPointerDown(e) {
+    if (e.pointerType !== "mouse" || e.button !== 0) {
+      return;
+    }
+    dragPointerId = e.pointerId;
+    dragStartX = e.clientX;
+    dragStartScroll = slider.scrollLeft;
+    slider.setPointerCapture(e.pointerId);
+    slider.classList.add("is-dragging");
+  }
+
+  function onPointerMove(e) {
+    if (dragPointerId !== e.pointerId) {
+      return;
+    }
+    slider.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
+    e.preventDefault();
+  }
+
+  function onPointerUp(e) {
+    if (dragPointerId !== e.pointerId) {
+      return;
+    }
+    dragPointerId = null;
+    try {
+      slider.releasePointerCapture(e.pointerId);
+    } catch {
+      /* уже отпущен */
+    }
+    slider.classList.remove("is-dragging");
+  }
+
+  slider.addEventListener("pointerdown", onPointerDown);
+  slider.addEventListener("pointermove", onPointerMove, { passive: false });
+  slider.addEventListener("pointerup", onPointerUp);
+  slider.addEventListener("pointercancel", onPointerUp);
+
   slider.addEventListener("scroll", updateNav, { passive: true });
   window.addEventListener("resize", updateNav);
   updateNav();
