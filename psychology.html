@@ -250,8 +250,26 @@
 
       <section class="section">
         <h2>Как проходит наша работа</h2>
-        <div class="cards-grid cards-grid--two">
-          <article class="card card--full request-block">
+        <div class="process-slider-block" data-process-slider>
+          <div class="process-slider-shell">
+            <button
+              type="button"
+              class="process-slider-nav process-slider-nav--prev"
+              data-slider-prev
+              aria-controls="process-slider-track"
+              aria-label="Предыдущий этап"
+            >
+              ‹
+            </button>
+            <div
+              class="process-slider"
+              id="process-slider-track"
+              tabindex="0"
+              role="region"
+              aria-roledescription="карусель"
+              aria-label="Этапы работы"
+            >
+          <article class="process-slide card card--full request-block">
             <h3>Знакомство</h3>
             <p>
               Первая встреча длится 60–75 минут (как и последующие сессии).
@@ -271,7 +289,7 @@
               диалоге.
             </p>
           </article>
-          <article class="card card--full request-block">
+          <article class="process-slide card card--full request-block">
             <h3>Формулируем запрос</h3>
             <p>
               Иногда люди приходят с чётким запросом, а иногда — с тревогой, усталостью,
@@ -286,7 +304,7 @@
               хочется прийти.
             </p>
           </article>
-          <article class="card card--full request-block">
+          <article class="process-slide card card--full request-block">
             <h3>Регулярные сессии</h3>
             <p>
               Дальнейшая работа проходит онлайн или очно — обычно один раз в неделю.
@@ -304,7 +322,7 @@
               причины происходящего.
             </p>
           </article>
-          <article class="card card--full request-block">
+          <article class="process-slide card card--full request-block">
             <h3>Замечаете изменения</h3>
             <p>Постепенно внутри появляется больше устойчивости и ясности.</p>
             <p>
@@ -317,6 +335,20 @@
               замечают, что начинают по-другому относиться к себе, людям и своей жизни.
             </p>
           </article>
+            </div>
+            <button
+              type="button"
+              class="process-slider-nav process-slider-nav--next"
+              data-slider-next
+              aria-controls="process-slider-track"
+              aria-label="Следующий этап"
+            >
+              ›
+            </button>
+          </div>
+          <p class="process-slider-hint muted">
+            Листайте вбок мышью, тачем или кнопками
+          </p>
         </div>
       </section>
 

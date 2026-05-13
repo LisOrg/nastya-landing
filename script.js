@@ -36,10 +36,61 @@ function initReveal() {
   revealTargets.forEach((item) => observer.observe(item));
 }
 
+function initProcessSlider() {
+  const block = document.querySelector("[data-process-slider]");
+  if (!block) {
+    return;
+  }
+
+  const slider = block.querySelector(".process-slider");
+  const prev = block.querySelector("[data-slider-prev]");
+  const next = block.querySelector("[data-slider-next]");
+  const slides = slider ? slider.querySelectorAll(".process-slide") : [];
+
+  if (!slider || slides.length === 0) {
+    return;
+  }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function slideStep() {
+    const first = slides[0];
+    const styles = getComputedStyle(slider);
+    const gapRaw = styles.columnGap || styles.gap || "0";
+    const gap = Number.parseFloat(gapRaw) || 0;
+    return first.offsetWidth + gap;
+  }
+
+  function updateNav() {
+    const maxScroll = Math.max(0, slider.scrollWidth - slider.clientWidth - 2);
+    if (prev) {
+      prev.disabled = slider.scrollLeft <= 2;
+    }
+    if (next) {
+      next.disabled = slider.scrollLeft >= maxScroll;
+    }
+  }
+
+  function scrollByDir(dir) {
+    slider.scrollBy({
+      left: dir * slideStep(),
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  }
+
+  prev?.addEventListener("click", () => scrollByDir(-1));
+  next?.addEventListener("click", () => scrollByDir(1));
+
+  slider.addEventListener("scroll", updateNav, { passive: true });
+  window.addEventListener("resize", updateNav);
+  updateNav();
+}
+
 function loadSiteFooter() {
   const mount = document.getElementById("site-footer-mount");
   if (!mount) {
     initReveal();
+    initProcessSlider();
     return;
   }
 
@@ -63,6 +114,7 @@ function loadSiteFooter() {
     })
     .finally(() => {
       initReveal();
+      initProcessSlider();
     });
 }
 
