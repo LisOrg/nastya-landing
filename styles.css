@@ -236,6 +236,17 @@ ol {
   color: var(--text-secondary);
 }
 
+/* Многострочные текстовые блоки — по ширине */
+.text-block,
+.text-block p,
+.section--narrow p,
+.card--full p,
+.card--full li,
+.section-note {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .js .reveal-item {
   opacity: 0;
   transform: translateY(20px);
