@@ -198,6 +198,22 @@ ol {
   position: relative;
   background-color: #fbf1ea;
   overflow: hidden;
+  /* Ниже высоты выреза (до 560px) голова обрезалась при коротком тексте */
+  min-height: clamp(320px, 54vh, 620px);
+}
+
+.chem-hero-cutout {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  height: clamp(260px, 48vh, 560px);
+  width: auto;
+  max-width: min(58vw, 520px);
+  object-fit: contain;
+  object-position: left bottom;
+  pointer-events: none;
+  user-select: none;
 }
 
 .chem-hero-band::after {
@@ -229,11 +245,22 @@ ol {
 
 .chem-hero-band > .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .chem-hero {
   position: relative;
+}
+
+/* Текст героя не шире половины экрана (от левого края вьюпорта до середины) */
+.chem-hero.section--narrow {
+  max-width: min(850px, calc(50vw - 1.25rem));
+}
+
+@media (max-width: 639.98px) {
+  .chem-hero.section--narrow {
+    max-width: 850px;
+  }
 }
 
 .section-head {
