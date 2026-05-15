@@ -193,6 +193,49 @@ ol {
   max-width: 850px;
 }
 
+/* chemistry.html: фон за вступительным блоком */
+.chem-hero-band {
+  position: relative;
+  background-color: #fbf1ea;
+  overflow: hidden;
+}
+
+.chem-hero-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  background-image: url("./img/desk-blur-layer.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.12) 18%,
+    rgba(0, 0, 0, 0.55) 42%,
+    #000 72%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.12) 18%,
+    rgba(0, 0, 0, 0.55) 42%,
+    #000 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chem-hero-band > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.chem-hero {
+  position: relative;
+}
+
 .section-head {
   margin-bottom: 1rem;
 }
