@@ -149,7 +149,7 @@ function loadSiteFooter() {
     .then((html) => {
       const trimmed = html.trim();
       if (trimmed) {
-        mount.outerHTML = trimmed;
+        mount.innerHTML = trimmed;
       }
     })
     .catch((err) => {
