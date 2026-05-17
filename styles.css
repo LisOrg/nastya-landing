@@ -193,38 +193,25 @@ ol {
   max-width: 850px;
 }
 
-/* chemistry.html: фон за вступительным блоком */
-.chem-hero-band {
+/* chemistry.html: фон в той же колонке, что и карточки (.container) */
+.chem-hero-band > .container {
   position: relative;
-  background-color: #fbf1ea;
   overflow: hidden;
-  /* Ниже высоты выреза (до 560px) голова обрезалась при коротком тексте */
-  min-height: clamp(320px, 54vh, 620px);
+  min-height: clamp(320px, 48vh, 580px);
+  background-color: #f6f1ea;
 }
 
-.chem-hero-cutout {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  z-index: 1;
-  height: clamp(260px, 48vh, 560px);
-  width: auto;
-  max-width: min(58vw, 520px);
-  object-fit: contain;
-  object-position: left bottom;
-  pointer-events: none;
-  user-select: none;
-}
-
-.chem-hero-band::after {
+.chem-hero-band > .container::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   left: 50%;
-  background-image: url("./img/desk-blur-layer.png");
+  background-image: url("./img/final/final-chemistry1.png");
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: cover;
+  background-position: center;
+  background-size: 100% 100%;
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -243,18 +230,14 @@ ol {
   z-index: 0;
 }
 
-.chem-hero-band > .container {
-  position: relative;
-  z-index: 2;
-}
-
 .chem-hero {
   position: relative;
+  z-index: 1;
 }
 
-/* Текст героя не шире половины экрана (от левого края вьюпорта до середины) */
+/* текст — левая половина колонки (как фото — правая половина той же колонки) */
 .chem-hero.section--narrow {
-  max-width: min(850px, calc(50vw - 1.25rem));
+  max-width: min(850px, 50%);
 }
 
 @media (max-width: 639.98px) {
