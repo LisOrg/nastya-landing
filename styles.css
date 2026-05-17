@@ -146,6 +146,14 @@ ol {
   text-decoration: none;
 }
 
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: end;
+  padding-block: 0.5rem;
+}
+
 .hero-content {
   min-width: 0;
 }
@@ -238,12 +246,6 @@ ol {
 /* текст — левая половина колонки (как фото — правая половина той же колонки) */
 .chem-hero.section--narrow {
   max-width: min(850px, 50%);
-}
-
-@media (max-width: 639.98px) {
-  .chem-hero.section--narrow {
-    max-width: 850px;
-  }
 }
 
 .section-head {
@@ -706,6 +708,50 @@ ol {
   .cards-grid--directions {
     grid-template-columns: 1fr;
   }
+
+  .cards-grid--states {
+    --states-card-height: auto;
+  }
+
+  .cards-grid--states .card {
+    height: auto;
+    min-height: 6.5rem;
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .chem-hero-band > .container {
+    min-height: auto;
+  }
+
+  .chem-hero-band > .container::after {
+    left: 0;
+    top: auto;
+    height: min(52vw, 300px);
+    background-position: center bottom;
+    background-size: cover;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.15) 22%,
+      rgba(0, 0, 0, 0.65) 50%,
+      #000 78%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.15) 22%,
+      rgba(0, 0, 0, 0.65) 50%,
+      #000 78%
+    );
+  }
+
+  .chem-hero.section--narrow {
+    max-width: 100%;
+    padding-bottom: min(50vw, 280px);
+  }
 }
 
 @media (max-width: 640px) {
@@ -714,9 +760,59 @@ ol {
   }
 
   .site-header {
-    position: static;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    padding-block: 0.75rem;
+  }
+
+  .header-nav {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.75rem;
+    padding-bottom: 2px;
+  }
+
+  .header-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-nav a {
+    flex-shrink: 0;
+  }
+
+  .text-block,
+  .text-block p,
+  .section--narrow p,
+  .card--full p,
+  .card--full li,
+  .section-note {
+    text-align: left;
+  }
+
+  .chem-hero-band > .container::after {
+    height: min(58vw, 260px);
+  }
+
+  .chem-hero.section--narrow {
+    padding-bottom: min(54vw, 250px);
+  }
+
+  .process-slider {
+    padding-inline: 2.35rem;
+  }
+
+  .process-slide {
+    flex-basis: min(24rem, calc(100% - 1rem));
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-actions,
+  .footer-social {
+    grid-template-columns: 1fr;
   }
 }
 
