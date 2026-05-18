@@ -446,6 +446,12 @@ ol {
   z-index: 1;
   margin-left: 50%;
   max-width: 50%;
+  padding: 2rem 1rem 2rem clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.main-hero p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* chemistry.html + psychology.html: шапка в колонке .container */
@@ -1008,7 +1014,12 @@ ol {
   .main-hero {
     margin-left: 0;
     max-width: 100%;
-    padding-bottom: min(50vw, 280px);
+    padding: 1.5rem 0 min(50vw, 280px);
+  }
+
+  .main-hero p {
+    text-align: left;
+    hyphens: none;
   }
 
   .chem-hero-band > .container,
