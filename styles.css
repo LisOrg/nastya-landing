@@ -426,16 +426,16 @@ ol {
   mask-image: linear-gradient(
     to left,
     transparent 0%,
-    rgba(0, 0, 0, 0.12) 18%,
-    rgba(0, 0, 0, 0.55) 42%,
-    #000 72%
+    rgba(0, 0, 0, 0.2) 4%,
+    rgba(0, 0, 0, 0.85) 8%,
+    #000 13%
   );
   -webkit-mask-image: linear-gradient(
     to left,
     transparent 0%,
-    rgba(0, 0, 0, 0.12) 18%,
-    rgba(0, 0, 0, 0.55) 42%,
-    #000 72%
+    rgba(0, 0, 0, 0.2) 4%,
+    rgba(0, 0, 0, 0.85) 8%,
+    #000 13%
   );
   pointer-events: none;
   z-index: 0;
@@ -478,16 +478,16 @@ ol {
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 0, 0, 0.12) 18%,
-    rgba(0, 0, 0, 0.55) 42%,
-    #000 72%
+    rgba(0, 0, 0, 0.15) 8%,
+    rgba(0, 0, 0, 0.75) 20%,
+    #000 35%
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 0, 0, 0.12) 18%,
-    rgba(0, 0, 0, 0.55) 42%,
-    #000 72%
+    rgba(0, 0, 0, 0.15) 8%,
+    rgba(0, 0, 0, 0.75) 20%,
+    #000 35%
   );
   pointer-events: none;
   z-index: 0;
