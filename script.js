@@ -137,6 +137,13 @@ function loadSiteFooter() {
     return;
   }
 
+  // Футер уже вставлен статически — fetch не нужен
+  if (mount.querySelector("footer")) {
+    initReveal();
+    initProcessSlider();
+    return;
+  }
+
   const footerUrl = new URL("footer.html", window.location.href);
 
   fetch(footerUrl.href)
