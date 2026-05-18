@@ -519,6 +519,13 @@ ol {
 .chem-hero.section--narrow,
 .psy-hero.section--narrow {
   max-width: min(850px, 50%);
+  padding-right: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.chem-hero p,
+.psy-hero p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 .section-head {
@@ -1017,7 +1024,9 @@ ol {
     padding: 1.5rem 0 min(50vw, 280px);
   }
 
-  .main-hero p {
+  .main-hero p,
+  .chem-hero p,
+  .psy-hero p {
     text-align: left;
     hyphens: none;
   }
