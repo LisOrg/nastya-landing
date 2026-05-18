@@ -12,11 +12,6 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
-  for = "/img/preview/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
 # CSS и JS — кэш на неделю
 [[headers]]
   for = "/*.css"

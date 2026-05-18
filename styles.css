@@ -692,15 +692,6 @@ ol {
   font-size: 0.88rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .process-slider {
-    scroll-behavior: auto;
-  }
-}
 
 .muted {
   color: var(--text-secondary);
@@ -752,6 +743,8 @@ ol {
   padding: 0.6rem 1rem;
   border-radius: 999px;
   border: 1px solid transparent;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
   font-weight: 600;
   transition: all 0.2s ease;
 }
@@ -778,7 +771,7 @@ ol {
 
 .site-footer {
   margin-top: 2rem;
-  padding: 2.4rem 0;
+  padding: 2.4rem 0 calc(2.4rem + env(safe-area-inset-bottom, 0px));
   background: #e8dfd4;
   border-top: 1px solid rgba(58, 58, 58, 0.15);
 }
@@ -836,6 +829,7 @@ ol {
   gap: 0.62rem;
   width: 100%;
   min-width: 0;
+  min-height: 44px;
   padding: 0.62rem 1.2rem;
   border-radius: 999px;
   border: 1px solid rgba(58, 58, 58, 0.12);
@@ -905,6 +899,7 @@ ol {
   gap: 0.62rem;
   width: 100%;
   min-width: 0;
+  min-height: 44px;
   padding: 0.62rem 1.2rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 248, 242, 0.22);
@@ -1135,6 +1130,14 @@ ol {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .process-slider {
+    scroll-behavior: auto;
+  }
+
   .js .reveal-item {
     opacity: 1;
     transform: none;
