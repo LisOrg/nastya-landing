@@ -398,7 +398,7 @@ ol {
 .main-hero-band > .container {
   position: relative;
   overflow: hidden;
-  height: clamp(380px, 54vh, 620px);
+  min-height: clamp(380px, 54vh, 620px);
   background-color: #f6f1ea;
 }
 
