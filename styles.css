@@ -201,22 +201,24 @@ ol {
   max-width: 850px;
 }
 
-/* chemistry.html: фон в той же колонке, что и карточки (.container) */
-.chem-hero-band > .container {
+/* chemistry.html + psychology.html: шапка в колонке .container */
+.chem-hero-band > .container,
+.psy-hero-band > .container {
   position: relative;
   overflow: hidden;
-  min-height: clamp(320px, 48vh, 580px);
+  /* фиксированная высота — обе шапки всегда одинаковы */
+  height: clamp(380px, 54vh, 620px);
   background-color: #f6f1ea;
 }
 
-.chem-hero-band > .container::after {
+.chem-hero-band > .container::after,
+.psy-hero-band > .container::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 50%;
-  background-image: url("./img/final/final-chemistry1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -238,13 +240,23 @@ ol {
   z-index: 0;
 }
 
-.chem-hero {
+.chem-hero-band > .container::after {
+  background-image: url("./img/final/final-chemistry1.png");
+}
+
+.psy-hero-band > .container::after {
+  background-image: url("./img/final/psyxo/combined.png");
+}
+
+.chem-hero,
+.psy-hero {
   position: relative;
   z-index: 1;
 }
 
-/* текст — левая половина колонки (как фото — правая половина той же колонки) */
-.chem-hero.section--narrow {
+/* текст — левая половина колонки (фото — правая половина той же колонки) */
+.chem-hero.section--narrow,
+.psy-hero.section--narrow {
   max-width: min(850px, 50%);
 }
 
@@ -722,11 +734,13 @@ ol {
 }
 
 @media (max-width: 768px) {
-  .chem-hero-band > .container {
-    min-height: auto;
+  .chem-hero-band > .container,
+  .psy-hero-band > .container {
+    height: auto;
   }
 
-  .chem-hero-band > .container::after {
+  .chem-hero-band > .container::after,
+  .psy-hero-band > .container::after {
     left: 0;
     top: auto;
     height: min(52vw, 300px);
@@ -748,7 +762,8 @@ ol {
     );
   }
 
-  .chem-hero.section--narrow {
+  .chem-hero.section--narrow,
+  .psy-hero.section--narrow {
     max-width: 100%;
     padding-bottom: min(50vw, 280px);
   }
@@ -792,12 +807,20 @@ ol {
     text-align: left;
   }
 
-  .chem-hero-band > .container::after {
+  /* Запросы: на узких экранах 2 колонки слишком тесны для длинных списков */
+  .cards-grid--requests {
+    grid-template-columns: 1fr;
+  }
+
+  .chem-hero-band > .container::after,
+  .psy-hero-band > .container::after {
     height: min(58vw, 260px);
   }
 
-  .chem-hero.section--narrow {
-    padding-bottom: min(54vw, 250px);
+  /* Отступ чуть больше высоты изображения, чтобы текст не перекрывался */
+  .chem-hero.section--narrow,
+  .psy-hero.section--narrow {
+    padding-bottom: min(62vw, 270px);
   }
 
   .process-slider {
