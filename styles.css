@@ -126,6 +126,18 @@ body {
   line-height: 1.65;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -346,7 +358,15 @@ ol {
   align-items: center;
   color: var(--text-main);
   font-weight: 500;
-  min-height: 40px;
+  min-height: 44px;
+}
+
+.brand:focus-visible,
+.header-nav a:focus-visible {
+  outline: 2px solid var(--accent-terracotta);
+  outline-offset: 3px;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 .header-nav .header-cta {
@@ -596,6 +616,11 @@ ol {
 
 .process-slider-nav:hover:not(:disabled) {
   background: #fff;
+}
+
+.process-slider-nav:focus-visible {
+  outline: 2px solid var(--accent-terracotta);
+  outline-offset: 2px;
 }
 
 .process-slider-nav:disabled {

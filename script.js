@@ -2,9 +2,11 @@ document.documentElement.classList.add("js");
 
 function initReveal() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  /* Герой не анимируем: иначе весь блок с текстом стартует с opacity:0 и может
-   не получить is-visible у IntersectionObserver — текст «пропадает». */
-  const revealTargets = document.querySelectorAll(".section, .card, .site-footer");
+  /* Hero-секции намеренно исключены: они в viewport при загрузке и могут не пройти
+     IntersectionObserver вовремя, оставив текст с opacity:0. */
+  const revealTargets = document.querySelectorAll(
+    ".section:not(.main-hero):not(.psy-hero):not(.chem-hero), .card, .site-footer"
+  );
 
   if (reduceMotion) {
     revealTargets.forEach((item) => item.classList.add("is-visible"));
@@ -123,6 +125,16 @@ function initProcessSlider() {
   slider.addEventListener("pointermove", onPointerMove, { passive: false });
   slider.addEventListener("pointerup", onPointerUp);
   slider.addEventListener("pointercancel", onPointerUp);
+
+  slider.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      scrollByDir(-1);
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      scrollByDir(1);
+    }
+  });
 
   slider.addEventListener("scroll", updateNav, { passive: true });
   window.addEventListener("resize", updateNav);
