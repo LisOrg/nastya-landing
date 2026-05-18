@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Психология | Анастасия Лисовенко</title>
   <meta name="description"
     content="Психологическая консультация онлайн: тревожность, выгорание, самооценка, отношения и личностные кризисы." />
@@ -22,7 +22,8 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Психологическая консультация — Анастасия Лисовенко" />
-  <link rel="canonical" href="https://lisovenko.netlify.app/psychology.html" />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/cormorant-garamond-cyrillic.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="./fonts/manrope-cyrillic.woff2" crossorigin />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -30,7 +31,7 @@
   <a class="skip-link" href="#main-content">Перейти к основному содержанию</a>
   <header class="site-header container">
     <a class="brand" href="./index.html">Анастасия Лисовенко</a>
-    <nav class="header-nav">
+    <nav class="header-nav" aria-label="Основная навигация">
       <a href="./index.html">Главная</a>
       <a href="./chemistry.html">Преподавание химии</a>
       <a href="#contacts">Контакты</a>
@@ -349,7 +350,7 @@
           </button>
         </div>
         <p class="process-slider-hint muted">
-          Перетаскивайте блок зажатой левой кнопкой мыши, листайте тачем или кнопками
+          Листайте свайпом, стрелками на клавиатуре или кнопками
         </p>
       </div>
     </section>

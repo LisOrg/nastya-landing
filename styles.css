@@ -98,8 +98,6 @@
   --text-main: #3a3a3a;
   --text-secondary: #6e6a66;
   --accent-terracotta: #b86f52;
-  --accent-sage: #a8b2a1;
-  --accent-light: #d7b8a3;
   --radius: 18px;
   --shadow: 0 10px 30px rgba(58, 58, 58, 0.08);
 }
@@ -115,6 +113,11 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   tab-size: 4;
+}
+
+::selection {
+  background-color: #e8cfc0;
+  color: #3a3a3a;
 }
 
 body {
@@ -335,6 +338,8 @@ ol {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 0;
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
   backdrop-filter: blur(10px);
   background: rgba(246, 241, 234, 0.9);
   border-bottom: 1px solid rgba(58, 58, 58, 0.1);
@@ -448,8 +453,7 @@ ol {
 .psy-hero-band > .container {
   position: relative;
   overflow: hidden;
-  /* фиксированная высота — обе шапки всегда одинаковы */
-  height: clamp(380px, 54vh, 620px);
+  min-height: clamp(380px, 54vh, 620px);
   background-color: #f6f1ea;
 }
 
@@ -676,6 +680,10 @@ ol {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .process-slider {
     scroll-behavior: auto;
   }
@@ -748,6 +756,11 @@ ol {
 
 .button-accent:hover {
   background: #a86349;
+}
+
+.button-accent:focus-visible {
+  outline: 3px solid var(--accent-terracotta);
+  outline-offset: 3px;
 }
 
 .site-footer {
