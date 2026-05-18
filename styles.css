@@ -386,6 +386,10 @@ ol {
   bottom: 0;
   right: 50%;
   background-image: url("./img/final/main/combined-left.png");
+  background-image: image-set(
+    url("./img/final/main/combined-left.webp") type("image/webp"),
+    url("./img/final/main/combined-left.png") type("image/png")
+  );
   background-repeat: no-repeat;
   background-position: left center;
   background-size: cover;
@@ -457,10 +461,18 @@ ol {
 
 .chem-hero-band > .container::after {
   background-image: url("./img/final/final-chemistry1.png");
+  background-image: image-set(
+    url("./img/final/final-chemistry1.webp") type("image/webp"),
+    url("./img/final/final-chemistry1.png") type("image/png")
+  );
 }
 
 .psy-hero-band > .container::after {
   background-image: url("./img/final/psyxo/combined.png");
+  background-image: image-set(
+    url("./img/final/psyxo/combined.webp") type("image/webp"),
+    url("./img/final/psyxo/combined.png") type("image/png")
+  );
 }
 
 .chem-hero,
