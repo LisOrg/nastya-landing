@@ -863,7 +863,7 @@ ol {
   padding: 0.62rem 1.2rem;
   border-radius: 999px;
   border: 1px solid rgba(58, 58, 58, 0.12);
-  background: rgba(255, 253, 250, 0.78);
+  background: transparent;
   color: var(--text-main);
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 600;
@@ -871,14 +871,10 @@ ol {
   line-height: 1.35;
   text-decoration: none;
   text-align: center;
-  box-shadow:
-    0 1px 2px rgba(58, 58, 58, 0.04),
-    0 10px 28px rgba(58, 58, 58, 0.08);
+  box-shadow: none;
   transition:
     transform 0.18s ease,
-    box-shadow 0.18s ease,
-    border-color 0.18s ease,
-    background 0.18s ease;
+    border-color 0.18s ease;
 }
 
 .footer-social-btn span {
@@ -887,10 +883,7 @@ ol {
 
 .footer-social-btn:hover {
   transform: translateY(-2px);
-  border-color: rgba(58, 58, 58, 0.2);
-  box-shadow:
-    0 2px 4px rgba(58, 58, 58, 0.06),
-    0 14px 34px rgba(58, 58, 58, 0.12);
+  border-color: rgba(58, 58, 58, 0.25);
   text-decoration: none;
 }
 
@@ -953,6 +946,7 @@ ol {
 
 .signup-action-btn span {
   text-align: center;
+  color: #fff8f2;
 }
 
 .signup-action-btn:hover {
@@ -1305,10 +1299,12 @@ ol {
     color: #fff8f2 !important;
     border-color: rgba(255, 248, 242, 0.22) !important;
   }
+  .signup-action-btn span { color: #fff8f2 !important; }
   .signup-action-icon { color: rgba(255, 248, 242, 0.95) !important; }
 
   /* Кнопки направлений (Перейти) */
   .button-accent { background: #b86f52 !important; color: #fff8f2 !important; }
+  .button-accent span { color: #fff8f2 !important; }
 
   /* Футер */
   .site-footer {
@@ -1318,8 +1314,8 @@ ol {
 
   /* Кнопки в футере */
   .footer-social-btn {
-    background: rgba(255, 253, 250, 0.78) !important;
-    border-color: rgba(58, 58, 58, 0.12) !important;
+    background: transparent !important;
+    border-color: rgba(58, 58, 58, 0.18) !important;
     color: #3a3a3a !important;
   }
   .footer-social-btn--tel .footer-social-icon { color: #4a7c59 !important; }
