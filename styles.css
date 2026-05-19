@@ -1222,68 +1222,96 @@ ol {
 }
 
 /* Принудительно сохраняем светлую тему — для браузеров,
-   которые игнорируют color-scheme: only light (старый Samsung Internet, AOSP WebView) */
+   которые игнорируют color-scheme: only light (Samsung Internet, AOSP WebView).
+   Используем !important, т.к. форсированный тёмный режим применяется поверх CSS. */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: only light;
   }
 
-  html {
-    background-color: #f6f1ea;
+  html,
+  body,
+  main,
+  .container,
+  .section,
+  .section--narrow,
+  .cards-grid,
+  .process-slider-block,
+  .process-slider-shell,
+  .signup-actions,
+  .main-hero-band,
+  .chem-hero-band,
+  .psy-hero-band,
+  .main-hero-band > .container,
+  .chem-hero-band > .container,
+  .psy-hero-band > .container {
+    background-color: #f6f1ea !important;
   }
 
   body {
-    background-color: #f6f1ea;
-    color: #3a3a3a;
+    color: #3a3a3a !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #3a3a3a !important;
+  }
+
+  p, li, span, label {
+    color: #3a3a3a !important;
+  }
+
+  .muted {
+    color: #6e6a66 !important;
   }
 
   .site-header {
-    background-color: #f6f1ea;
-    border-bottom-color: rgba(58, 58, 58, 0.1);
+    background-color: #f6f1ea !important;
+    border-bottom-color: rgba(58, 58, 58, 0.1) !important;
   }
 
   .brand,
   .header-nav a {
-    color: #3a3a3a;
+    color: #3a3a3a !important;
   }
 
-  .card {
-    background-color: #efe7dd;
-    color: #3a3a3a;
+  .card,
+  .card--full,
+  .request-block,
+  .process-slide {
+    background-color: #efe7dd !important;
+    color: #3a3a3a !important;
   }
 
-  .site-footer {
-    background-color: #e8ddd2;
-    color: #3a3a3a;
+  .site-footer,
+  .footer-inner {
+    background-color: #e8ddd2 !important;
+    color: #3a3a3a !important;
   }
 
   .footer-social-btn,
   .signup-action-btn {
-    background-color: #efe7dd;
-    color: #3a3a3a;
-    border-color: rgba(58, 58, 58, 0.15);
+    background-color: #efe7dd !important;
+    color: #3a3a3a !important;
+    border-color: rgba(58, 58, 58, 0.15) !important;
   }
 
   .button {
-    background-color: #b86f52;
-    color: #fff;
+    background-color: #b86f52 !important;
+    color: #fff !important;
   }
 
-  .main-hero-band > .container,
-  .chem-hero-band > .container,
-  .psy-hero-band > .container {
-    background-color: #f6f1ea;
+  .header-cta {
+    background-color: #b86f52 !important;
+    color: #fff !important;
   }
 
-  h1, h2, h3 {
-    color: #3a3a3a;
+  .process-slider-nav {
+    background-color: #efe7dd !important;
+    color: #3a3a3a !important;
   }
 
-  p, li {
-    color: #3a3a3a;
-  }
-
-  .muted {
-    color: #6e6a66;
+  .skip-link {
+    background-color: #f6f1ea !important;
+    color: #3a3a3a !important;
   }
 }
