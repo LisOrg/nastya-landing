@@ -3,12 +3,14 @@ document.documentElement.classList.add("js");
 function initReveal() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   /* Hero-секции намеренно исключены: они в viewport при загрузке и могут не пройти
-     IntersectionObserver вовремя, оставив текст с opacity:0. */
+     IntersectionObserver вовремя, оставив текст с opacity:0.
+     .card намеренно исключены: они вложены в .section, двойной transform сдвигал
+     кнопки на 40px и делал их недоступными при нажатии. */
   const revealTargets = document.querySelectorAll(
-    ".section:not(.main-hero):not(.psy-hero):not(.chem-hero), .card, .site-footer"
+    ".section:not(.main-hero):not(.psy-hero):not(.chem-hero), .site-footer"
   );
 
-  if (reduceMotion) {
+  if (reduceMotion || !("IntersectionObserver" in window)) {
     revealTargets.forEach((item) => item.classList.add("is-visible"));
     return;
   }
@@ -163,9 +165,16 @@ function initHamburgerMenu() {
     toggle.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
   });
 
-  // Закрыть по клику на ссылку
+  // Закрыть по клику на якорную ссылку (#...).
+  // Для ссылок на другие страницы (.html) меню НЕ закрываем немедленно:
+  // ряд мобильных браузеров перестаёт следовать href, если родитель
+  // становится display:none в процессе обработки того же click-события.
+  // При навигации на новую страницу меню исчезнет автоматически.
   nav.addEventListener("click", (e) => {
-    if (e.target.closest("a")) closeMenu();
+    const link = e.target.closest("a");
+    if (!link) return;
+    const href = link.getAttribute("href") || "";
+    if (href.startsWith("#")) closeMenu();
   });
 
   // Закрыть по клику вне меню
