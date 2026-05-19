@@ -141,6 +141,52 @@ function initProcessSlider() {
   updateNav();
 }
 
+function initHamburgerMenu() {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("header-nav");
+
+  if (!toggle || !nav) return;
+
+  function closeMenu() {
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Открыть меню");
+    nav.classList.remove("is-open");
+  }
+
+  function openMenu() {
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Закрыть меню");
+    nav.classList.add("is-open");
+  }
+
+  toggle.addEventListener("click", () => {
+    toggle.getAttribute("aria-expanded") === "true" ? closeMenu() : openMenu();
+  });
+
+  // Закрыть по клику на ссылку
+  nav.addEventListener("click", (e) => {
+    if (e.target.closest("a")) closeMenu();
+  });
+
+  // Закрыть по клику вне меню
+  document.addEventListener("click", (e) => {
+    if (!toggle.contains(e.target) && !nav.contains(e.target)) closeMenu();
+  });
+
+  // Закрыть по Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+
+  // Закрыть при расширении окна выше мобильного breakpoint
+  window.matchMedia("(min-width: 641px)").addEventListener("change", (e) => {
+    if (e.matches) closeMenu();
+  });
+}
+
 function loadSiteFooter() {
   const mount = document.getElementById("site-footer-mount");
   if (!mount) {
@@ -180,4 +226,5 @@ function loadSiteFooter() {
     });
 }
 
+initHamburgerMenu();
 loadSiteFooter();

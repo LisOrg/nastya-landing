@@ -390,6 +390,49 @@ ol {
   text-decoration: none;
 }
 
+/* Hamburger button — скрыт на десктопе */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 11px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  color: var(--text-main);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent-terracotta);
+  outline-offset: 2px;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: center;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 
 .section {
   padding: 1.87rem 0;
@@ -997,20 +1040,8 @@ ol {
     height: min(52vw, 300px);
     background-position: center bottom;
     background-size: cover;
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.15) 22%,
-      rgba(0, 0, 0, 0.65) 50%,
-      #000 78%
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.15) 22%,
-      rgba(0, 0, 0, 0.65) 50%,
-      #000 78%
-    );
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 
   .main-hero {
@@ -1038,20 +1069,8 @@ ol {
     height: min(52vw, 300px);
     background-position: center bottom;
     background-size: cover;
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.15) 22%,
-      rgba(0, 0, 0, 0.65) 50%,
-      #000 78%
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.15) 22%,
-      rgba(0, 0, 0, 0.65) 50%,
-      #000 78%
-    );
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 
   .chem-hero.section--narrow,
@@ -1067,27 +1086,53 @@ ol {
   }
 
   .site-header {
-    flex-wrap: wrap;
-    gap: 0.65rem;
+    flex-wrap: nowrap;
     padding-block: 0.75rem;
   }
 
-  .header-nav {
-    width: 100%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 0.75rem;
-    padding-bottom: 2px;
+  .nav-toggle {
+    display: flex;
   }
 
-  .header-nav::-webkit-scrollbar {
+  .header-nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: -0.7rem;
+    right: -0.7rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.25rem 1.4rem 1rem;
+    background: rgba(246, 241, 234, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(58, 58, 58, 0.12);
+    box-shadow: 0 8px 24px rgba(58, 58, 58, 0.1);
+    z-index: 19;
+  }
+
+  .header-nav.is-open {
+    display: flex;
   }
 
   .header-nav a {
+    width: 100%;
+    padding: 0.7rem 0;
+    min-height: 48px;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgba(58, 58, 58, 0.07);
     flex-shrink: 0;
+  }
+
+  .header-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .header-nav .header-cta {
+    margin-top: 0.5rem;
+    justify-content: center;
+    border-bottom: none;
+    border-radius: 999px;
   }
 
   .section--narrow p,
@@ -1130,6 +1175,10 @@ ol {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .nav-toggle-bar {
+    transition: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
