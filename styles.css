@@ -1236,14 +1236,20 @@ ol {
   .cards-grid, .cards-grid--three, .cards-grid--two,
   .cards-grid--states, .cards-grid--requests, .cards-grid--directions,
   .process-slider-block, .process-slider-shell, .process-slider,
-  .signup-actions, .footer-contact-actions, .footer-social,
+  .signup-actions,
   .main-hero-band, .chem-hero-band, .psy-hero-band,
   .main-hero-band > .container,
   .chem-hero-band > .container,
   .psy-hero-band > .container,
   .main-hero, .chem-hero, .psy-hero,
-  .section-note, .footer-inner {
+  .section-note {
     background-color: #f6f1ea !important;
+    color: #3a3a3a !important;
+  }
+
+  /* Внутренние элементы футера — прозрачные, чтобы сливались с фоном футера #e8dfd4 */
+  .footer-inner, .footer-contact-actions, .footer-social {
+    background-color: transparent !important;
     color: #3a3a3a !important;
   }
 
