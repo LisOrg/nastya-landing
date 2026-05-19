@@ -93,7 +93,7 @@
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: only light;
   --bg-main: #f6f1ea;
   --bg-card: #efe7dd;
   --text-main: #3a3a3a;
@@ -1218,5 +1218,72 @@ ol {
 
   .signup-action-btn:hover {
     transform: none;
+  }
+}
+
+/* Принудительно сохраняем светлую тему — для браузеров,
+   которые игнорируют color-scheme: only light (старый Samsung Internet, AOSP WebView) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: only light;
+  }
+
+  html {
+    background-color: #f6f1ea;
+  }
+
+  body {
+    background-color: #f6f1ea;
+    color: #3a3a3a;
+  }
+
+  .site-header {
+    background-color: #f6f1ea;
+    border-bottom-color: rgba(58, 58, 58, 0.1);
+  }
+
+  .brand,
+  .header-nav a {
+    color: #3a3a3a;
+  }
+
+  .card {
+    background-color: #efe7dd;
+    color: #3a3a3a;
+  }
+
+  .site-footer {
+    background-color: #e8ddd2;
+    color: #3a3a3a;
+  }
+
+  .footer-social-btn,
+  .signup-action-btn {
+    background-color: #efe7dd;
+    color: #3a3a3a;
+    border-color: rgba(58, 58, 58, 0.15);
+  }
+
+  .button {
+    background-color: #b86f52;
+    color: #fff;
+  }
+
+  .main-hero-band > .container,
+  .chem-hero-band > .container,
+  .psy-hero-band > .container {
+    background-color: #f6f1ea;
+  }
+
+  h1, h2, h3 {
+    color: #3a3a3a;
+  }
+
+  p, li {
+    color: #3a3a3a;
+  }
+
+  .muted {
+    color: #6e6a66;
   }
 }
