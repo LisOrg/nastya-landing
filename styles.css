@@ -1037,8 +1037,8 @@ ol {
     left: 0;
     right: 0;
     top: auto;
-    height: min(52vw, 300px);
-    background-position: center bottom;
+    height: min(70vw, 420px);
+    background-position: center top;
     background-size: cover;
     mask-image: none;
     -webkit-mask-image: none;
@@ -1047,7 +1047,7 @@ ol {
   .main-hero {
     margin-left: 0;
     max-width: 100%;
-    padding: 1.5rem 0 min(50vw, 280px);
+    padding: 1.5rem 0 min(72vw, 440px);
   }
 
   .main-hero p,
@@ -1066,8 +1066,8 @@ ol {
   .psy-hero-band > .container::after {
     left: 0;
     top: auto;
-    height: min(52vw, 300px);
-    background-position: center bottom;
+    height: min(70vw, 420px);
+    background-position: center top;
     background-size: cover;
     mask-image: none;
     -webkit-mask-image: none;
@@ -1076,7 +1076,7 @@ ol {
   .chem-hero.section--narrow,
   .psy-hero.section--narrow {
     max-width: 100%;
-    padding-bottom: min(50vw, 280px);
+    padding-bottom: min(72vw, 440px);
   }
 }
 
@@ -1155,7 +1155,7 @@ ol {
   /* Отступ чуть больше высоты изображения, чтобы текст не перекрывался */
   .chem-hero.section--narrow,
   .psy-hero.section--narrow {
-    padding-bottom: min(62vw, 270px);
+    padding-bottom: min(74vw, 440px);
   }
 
   .process-slider {
