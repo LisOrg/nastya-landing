@@ -44,7 +44,38 @@
   </script>
   <link rel="preload" as="font" type="font/woff2" href="./fonts/cormorant-garamond-cyrillic.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="./fonts/manrope-cyrillic.woff2" crossorigin />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=2" />
+  <style>
+    @media (prefers-color-scheme: dark) {
+      html,body,main,#main-content,#contacts,#signup,.container,.section,.section--narrow,
+      .cards-grid,.cards-grid--three,.cards-grid--two,.cards-grid--states,.cards-grid--requests,.cards-grid--directions,
+      .process-slider-block,.process-slider-shell,.process-slider,.signup-actions,
+      .footer-contact-actions,.footer-social,.main-hero-band,.chem-hero-band,.psy-hero-band,
+      .main-hero-band>.container,.chem-hero-band>.container,.psy-hero-band>.container,
+      .main-hero,.chem-hero,.psy-hero,.section-note,.footer-inner
+        { background-color:#f6f1ea !important; color:#3a3a3a !important; }
+      .site-header { background:rgba(246,241,234,0.9) !important; border-bottom-color:rgba(58,58,58,0.1) !important; }
+      .brand,.header-nav a:not(.header-cta) { color:#3a3a3a !important; }
+      .header-nav .header-cta { background:#b86f52 !important; color:#fff8f2 !important; }
+      .nav-toggle { color:#3a3a3a !important; background:none !important; }
+      .nav-toggle-bar { background-color:#3a3a3a !important; }
+      .header-nav.is-open { background:rgba(246,241,234,0.98) !important; }
+      h1,h2,h3,h4,h5,h6 { color:#2f2e2d !important; }
+      p,li,span,label { color:#3a3a3a !important; }
+      .muted,.section-note { color:#6e6a66 !important; }
+      .card,.card--full,.request-block,.process-slide { background:#efe7dd !important; color:#3a3a3a !important; border-color:rgba(58,58,58,0.08) !important; }
+      .process-slider-nav { background:rgba(255,255,255,0.92) !important; color:#3a3a3a !important; }
+      .signup-action-btn { background:#b86f52 !important; color:#fff8f2 !important; }
+      .signup-action-icon { color:rgba(255,248,242,0.95) !important; }
+      .button-accent { background:#b86f52 !important; color:#fff8f2 !important; }
+      .site-footer { background:#e8dfd4 !important; border-top-color:rgba(58,58,58,0.15) !important; }
+      .footer-social-btn { background:rgba(255,253,250,0.78) !important; color:#3a3a3a !important; border-color:rgba(58,58,58,0.12) !important; }
+      .footer-social-btn--tel .footer-social-icon { color:#4a7c59 !important; }
+      .footer-social-btn--mail .footer-social-icon { color:#b86f52 !important; }
+      .footer-social-btn--tg .footer-social-icon { color:#229ed9 !important; }
+      .skip-link { background:#f6f1ea !important; color:#3a3a3a !important; }
+    }
+  </style>
 </head>
 
 <body>
