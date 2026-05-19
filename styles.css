@@ -93,6 +93,7 @@
 }
 
 :root {
+  color-scheme: light;
   --bg-main: #f6f1ea;
   --bg-card: #efe7dd;
   --text-main: #3a3a3a;
