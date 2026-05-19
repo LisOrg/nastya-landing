@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+*.py
+*.pyc
+__pycache__/
+
+# Node
+node_modules/
+
+# Editor
+.vscode/
+.idea/
+
+# Temp / draft images (prefix _ used during avatar generation)
+_*.png
+_*.jpg
+_*.webp
